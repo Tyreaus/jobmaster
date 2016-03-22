@@ -39,7 +39,6 @@ public class Client {
 		setId(id);
 		setCompany(company);
 		setContact(contact);
-		setWorkType(workType);
 		setAddress(address);
 		setCity(city);
 		setProvince(province);
