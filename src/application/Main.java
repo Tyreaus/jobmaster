@@ -5,9 +5,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
-//import javafx.scene.layout.BorderPane;
 
-
+/**
+ * Main program code
+ * @author Jeffrey, Tyler, Wilson, Shane
+ *
+ */
 public class Main extends Application {
 	
 	@Override
