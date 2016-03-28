@@ -39,7 +39,7 @@
                                        </padding>
                                        <children>
                                           <Label text="Choose View" />
-                                          <ComboBox onAction="#dB_ChooseView_Handler" prefWidth="150.0" />
+                                          <ComboBox prefWidth="150.0" />
                                        </children>
                                     </VBox>
                                     <PieChart prefHeight="225.0" prefWidth="402.0" title="Employees by industry" />
