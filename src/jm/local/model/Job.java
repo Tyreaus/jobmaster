@@ -1,54 +1,44 @@
-package application;
+package jm.local.model;
 
-public class Client {
+public class Job {
 	private int id;
-	private String company;
-	private String contact;
+	private int clientId;
+	private String description;
 	private String address;
 	private String city;
 	private String province;
 	private String postalCode;
-	private String phone;
-	private String email;
 	private String startDate;
 	private String endDate;
-	private String industry;
-	private String systemStatus;
+	private String markup;
 	private String notes;
 
-	public Client () {
+	public Job () {
 		setId(0);
-		setCompany("");
-		setContact("");
+		setClientId(0);
+		setDescription("");
 		setAddress("");
 		setCity("");
 		setProvince("");
 		setPostalCode("");
-		setPhone("");
-		setEmail("");
 		setStartDate("");
 		setEndDate("");
-		setIndustry("");
-		setSystemStatus("");
+		setMarkup("");
 		setNotes("");
 	}
 	
-	public Client (int id, String company, String contact, String workType, String address, 
-			String city, String province, String postalCode, String phone, String email, String startDate, 
-			String endDate, String industry, String systemStatus, String notes) {
+	public Job (int id, int clientId, String description, String address, String city, String province,
+			String postalCode, String startDate, String endDate, String markup, String notes) {
 		setId(id);
-		setCompany(company);
-		setContact(contact);
+		setClientId(clientId);
+		setDescription(description);
 		setAddress(address);
 		setCity(city);
 		setProvince(province);
 		setPostalCode(postalCode);
-		setPhone(phone);
-		setEmail(email);
 		setStartDate(startDate);
 		setEndDate(endDate);
-		setIndustry(industry);
-		setSystemStatus(systemStatus);
+		setMarkup(markup);
 		setNotes(notes);
 	}
 
@@ -60,20 +50,20 @@ public class Client {
 		this.id = id;
 	}
 
-	public String getCompany() {
-		return company;
+	public int getClientId() {
+		return clientId;
 	}
 
-	public void setCompany(String company) {
-		this.company = company;
+	public void setClientId(int clientId) {
+		this.clientId = clientId;
 	}
 
-	public String getContact() {
-		return contact;
+	public String getDescription() {
+		return description;
 	}
 
-	public void setContact(String contact) {
-		this.contact = contact;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	public String getAddress() {
@@ -108,22 +98,6 @@ public class Client {
 		this.postalCode = postalCode;
 	}
 
-	public String getPhone() {
-		return phone;
-	}
-
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
 	public String getStartDate() {
 		return startDate;
 	}
@@ -139,21 +113,13 @@ public class Client {
 	public void setEndDate(String endDate) {
 		this.endDate = endDate;
 	}
-	
-	public String getIndustry() {
-		return industry;
+
+	public String getMarkup() {
+		return markup;
 	}
 
-	public void setIndustry(String industry) {
-		this.industry = industry;
-	}
-
-	public String getSystemStatus() {
-		return systemStatus;
-	}
-
-	public void setSystemStatus(String systemStatus) {
-		this.systemStatus = systemStatus;
+	public void setMarkup(String markup) {
+		this.markup = markup;
 	}
 
 	public String getNotes() {

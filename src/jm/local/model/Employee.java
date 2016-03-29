@@ -1,4 +1,4 @@
-package application;
+package jm.local.model;
 
 public class Employee {
 	private int id;
