@@ -1,10 +1,22 @@
 package jm.local;
 	
+/*
+import java.net.URL;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.layout.AnchorPane;
+*/
+
+import java.net.URL;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 /**
  * Main program code
@@ -14,8 +26,17 @@ import javafx.scene.Scene;
 public class Main extends Application {
 	
 	@Override
-	public void start(Stage primaryStage) {
+	public void start(Stage stage) {
 		try {
+			
+		    stage.setTitle("JobMaster");
+		    AnchorPane layout = FXMLLoader.load(
+		      new URL(Main.class.getResource("view/JobMasterGUI.fxml").toExternalForm())
+		    );
+		    stage.setScene(new Scene(layout));
+		    stage.show();
+			
+			/*
 			Parent root = FXMLLoader.load(getClass().getResource("view/JobMasterGUI.fxml"));
 			//BorderPane root = new BorderPane();
 			Scene scene = new Scene(root);
@@ -23,6 +44,7 @@ public class Main extends Application {
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("JobMaster");
 			primaryStage.show();
+			*/
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
