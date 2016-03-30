@@ -7,6 +7,8 @@ import javafx.geometry.Side;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.PieChart;
 import javafx.scene.chart.PieChart.Data;
+import javafx.scene.chart.XYChart;
+import javafx.scene.chart.XYChart.Series;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Label;
@@ -24,16 +26,16 @@ public class JobMasterController {
 	private Label viewCBLabel;
 	
 	@FXML
-	private BarChart top10Chart;
+	private BarChart<String,Number> top10Chart;
 	
 	@FXML
 	private PieChart byIndChart;
 	
 	@FXML
-	private TableView dashboardTable;
+	private TableView<String> dashboardTable;
 	
 	ObservableList<Data> pieChartData;
-	ObservableList<Data> barChartData;
+	ObservableList<Series<String,Number>> barChartData;
 	
 	//Reference to main application
 	
@@ -97,16 +99,18 @@ public class JobMasterController {
     	//	to this method and use it to get a query
     	//	that can be parsed into data obj.s
     	
-    	//Create the bar chart items
-    	barChartData = FXCollections.observableArrayList(
-    			new Data("Item1", 25),
-    			new Data("Item2", 75)
-    			);
+    	//Create the bar chart data
+    	Series<String, Number> barChartData = new XYChart.Series<>();
+    	barChartData.setName("Jobs");
+    	barChartData.getData().add(new XYChart.Data<String, Number>("Client1", 25));
+    	barChartData.getData().add(new XYChart.Data<String, Number>("Client2", 50));
+    	barChartData.getData().add(new XYChart.Data<String, Number>("Client3", 75));
     	
     	//Set the chart data to the bar chart
-    	top10Chart.setData(barChartData);
+    	top10Chart.getData().add(barChartData);
     	top10Chart.setTitle("Top 10 Clients");
-    }
+    	
+    }//end setBarChart
     
     /**
      * Is called by the main application to give a reference back to itself.

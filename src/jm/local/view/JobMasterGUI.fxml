@@ -37,7 +37,7 @@
                                     <TableColumn prefWidth="75.0" text="C2" />
                                  </columns>
                               </TableView>
-                              <BarChart id="top10Chart" fx:id="top10Chart" maxWidth="300.0" prefHeight="200.0" prefWidth="300.0" title="Top Ten" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="10.0">
+                              <BarChart id="top10Chart" fx:id="top10Chart" animated="false" maxWidth="300.0" prefHeight="200.0" prefWidth="300.0" title="Top Ten" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="10.0">
                                  <xAxis>
                                     <CategoryAxis side="BOTTOM" />
                                  </xAxis>
