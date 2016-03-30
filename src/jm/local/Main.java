@@ -1,22 +1,13 @@
 package jm.local;
 	
-/*
-import java.net.URL;
-import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.stage.Stage;
-import javafx.scene.Scene;
-import javafx.scene.image.Image;
-import javafx.scene.layout.AnchorPane;
-*/
+import java.io.IOException;
 
-import java.net.URL;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.stage.Stage;
+import jm.local.view.JobMasterController;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
 
 /**
  * Main program code
@@ -25,32 +16,40 @@ import javafx.stage.Stage;
  */
 public class Main extends Application {
 	
-	@Override
-	public void start(Stage stage) {
-		try {
-			
-		    stage.setTitle("JobMaster");
-		    AnchorPane layout = FXMLLoader.load(
-		      new URL(Main.class.getResource("view/JobMasterGUI.fxml").toExternalForm())
-		    );
-		    stage.setScene(new Scene(layout));
-		    stage.show();
-			
-			/*
-			Parent root = FXMLLoader.load(getClass().getResource("view/JobMasterGUI.fxml"));
-			//BorderPane root = new BorderPane();
-			Scene scene = new Scene(root);
-			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-			primaryStage.setScene(scene);
-			primaryStage.setTitle("JobMaster");
-			primaryStage.show();
-			*/
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
-	}
+    private Stage primaryStage;
+	
+    @Override
+    public void start(Stage primaryStage) {
+        this.primaryStage = primaryStage;
+        this.primaryStage.setTitle("JobMaster");
+
+        initJMGui();
+    }//end start
+    
+    /**
+     * Initializes the root layout.
+     */
+    public void initJMGui() {
+        try {
+            // Load from fxml file.
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(Main.class.getResource("view/JobMasterGUI.fxml"));
+            AnchorPane JMGui = (AnchorPane) loader.load();
+
+            // Show the scene containing the root layout.
+            Scene scene = new Scene(JMGui);
+            primaryStage.setScene(scene);
+            primaryStage.show();
+            
+            // Give the controller access to the main app.
+            JobMasterController controller = loader.getController();
+            controller.setMainApp(this);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }//end trycatch
+    }//end initJMGui
 	
 	public static void main(String[] args) {
 		launch(args);
-	}
-}
+	}//end main
+}//end Main

@@ -21,7 +21,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jm.local.view.JobMasterController">
    <children>
       <TabPane prefHeight="768.0" prefWidth="1024.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <tabs>
@@ -37,7 +37,7 @@
                                     <TableColumn prefWidth="75.0" text="C2" />
                                  </columns>
                               </TableView>
-                              <BarChart id="top10Chart" fx:id="top10Chart" maxWidth="300.0" prefHeight="200.0" prefWidth="300.0" title="Top Ten Employers" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="10.0">
+                              <BarChart id="top10Chart" fx:id="top10Chart" maxWidth="300.0" prefHeight="200.0" prefWidth="300.0" title="Top Ten" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="10.0">
                                  <xAxis>
                                     <CategoryAxis side="BOTTOM" />
                                  </xAxis>
@@ -45,7 +45,7 @@
                                     <NumberAxis side="LEFT" />
                                  </yAxis>
                               </BarChart>
-                              <PieChart id="byIndChart" fx:id="byIndChart" prefHeight="200.0" prefWidth="300.0" title="Employees by industry" AnchorPane.leftAnchor="300.0" AnchorPane.topAnchor="10.0" />
+                              <PieChart id="byIndChart" fx:id="byIndChart" prefHeight="200.0" prefWidth="300.0" title="By Industry" AnchorPane.leftAnchor="300.0" AnchorPane.topAnchor="10.0" />
                               <VBox prefHeight="200.0" prefWidth="200.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
                                  <padding>
                                     <Insets left="10.0" top="10.0" />
