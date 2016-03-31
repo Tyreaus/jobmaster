@@ -5,7 +5,7 @@ import java.io.IOException;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
-import jm.local.view.JobMasterController;
+import jm.local.view.JobMasterGUIController;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 
@@ -42,7 +42,7 @@ public class Main extends Application {
             primaryStage.show();
             
             // Give the controller access to the main app.
-            JobMasterController controller = loader.getController();
+            JobMasterGUIController controller = loader.getController();
             controller.setMainApp(this);
         } catch (IOException e) {
             e.printStackTrace();

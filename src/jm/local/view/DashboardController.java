@@ -3,21 +3,17 @@ package jm.local.view;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.geometry.Side;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.PieChart;
 import javafx.scene.chart.PieChart.Data;
 import javafx.scene.chart.XYChart;
 import javafx.scene.chart.XYChart.Series;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.ComboBox;
 import jm.local.Main;
 
-public class JobMasterController {
+public class DashboardController {
 
 	@FXML
 	private ComboBox<String> viewComboBox;
@@ -45,7 +41,7 @@ public class JobMasterController {
      * The constructor.
      * The constructor is called before the initialize() method.
      */
-    public JobMasterController() {
+    public DashboardController() {
     }
     
     /**
