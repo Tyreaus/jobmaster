@@ -73,6 +73,9 @@ public class DashboardController {
     }//end Initialize
     
     private void setPieChart(){
+    	//Remove previous data
+    	byIndChart.getData().clear();
+    	
     	//Get data from the database based on the query
     	//NOTE: May be able to pass selectedView, line 56,
     	//	to this method and use it to get a query
@@ -90,6 +93,9 @@ public class DashboardController {
     }
     
     private void setBarChart(){
+    	//Remove previous data
+    	top10Chart.getData().clear();
+    	
     	//Get data from the database based on the query
     	//NOTE: May be able to pass selectedView, line 56,
     	//	to this method and use it to get a query
