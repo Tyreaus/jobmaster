@@ -30,9 +30,6 @@ public class DashboardController {
 	@FXML
 	private TableView<String> dashboardTable;
 	
-	ObservableList<Data> pieChartData;
-	ObservableList<Series<String,Number>> barChartData;
-	
 	//Reference to main application
 	
 	private Main mainApp;
@@ -73,8 +70,6 @@ public class DashboardController {
     }//end Initialize
     
     private void setPieChart(){
-    	//Remove previous data
-    	byIndChart.getData().clear();
     	
     	//Get data from the database based on the query
     	//NOTE: May be able to pass selectedView, line 56,
@@ -82,7 +77,7 @@ public class DashboardController {
     	//	that can be parsed into data obj.s
     	
     	//Create the pie chart items
-    	pieChartData = FXCollections.observableArrayList(
+    	 ObservableList<Data> pieChartData = FXCollections.observableArrayList(
     			new Data("Item1", 25),
     			new Data("Item2", 75)
     			);
@@ -93,13 +88,13 @@ public class DashboardController {
     }
     
     private void setBarChart(){
-    	//Remove previous data
-    	top10Chart.getData().clear();
     	
     	//Get data from the database based on the query
     	//NOTE: May be able to pass selectedView, line 56,
     	//	to this method and use it to get a query
     	//	that can be parsed into data obj.s
+    	//Code below may also be used in that method
+    	//(This is just for others to work with ATM)
     	
     	//Create the bar chart data
     	Series<String, Number> barChartData = new XYChart.Series<>();
@@ -113,6 +108,16 @@ public class DashboardController {
     	top10Chart.setTitle("Top 10 Clients");
     	
     }//end setBarChart
+    
+    private void setTable(){
+    	
+    	/*
+    		//Assuming getData() exists and returns proper object type
+    	private ObservableList<String> tableData = getData();
+    	dashboardTable.setItems(tableData);
+    		//May also be re-worked with other set chart methods
+    	*/
+    }//end setTable
     
     /**
      * Is called by the main application to give a reference back to itself.
