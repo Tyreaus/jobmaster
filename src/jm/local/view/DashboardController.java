@@ -104,6 +104,7 @@ public class DashboardController {
     	barChartData.getData().add(new XYChart.Data<String, Number>("Client3", 75));
     	
     	//Set the chart data to the bar chart
+    	top10Chart.getData().clear();
     	top10Chart.getData().add(barChartData);
     	top10Chart.setTitle("Top 10 Clients");
     	
