@@ -1,13 +1,17 @@
 package jm.local;
 	
 import java.io.IOException;
-
-import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.stage.Stage;
 import jm.local.view.JobMasterGUIController;
+import jm.local.model.Employee;
+import jm.local.view.EmployeeEditDialogController;
+import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 /**
  * Main program code
@@ -18,6 +22,8 @@ public class Main extends Application {
 	
     private Stage primaryStage;
 	
+   
+    
     @Override
     public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;
@@ -25,6 +31,7 @@ public class Main extends Application {
 
         initJMGui();
     }//end start
+    
     
     /**
      * Initializes the root layout.
@@ -48,6 +55,10 @@ public class Main extends Application {
             e.printStackTrace();
         }//end trycatch
     }//end initJMGui
+    
+    public Stage getPrimaryStage() {
+        return primaryStage;
+    }
 	
 	public static void main(String[] args) {
 		launch(args);
