@@ -47,20 +47,23 @@ public class EmployeeController {
      * The constructor.
      * The constructor is called before the initialize() method.
      */
-    public EmployeeController() {
-    	// Add some sample data
-        employeeData.add(new Employee(1, "Jeffrey", "Nadeau"));
-        employeeData.add(new Employee(2, "Travis", "Dreher"));
-        employeeData.add(new Employee(3, "Wilson", "Chau"));
-        employeeData.add(new Employee(4, "Shane", "Kelly"));
-    	
-    }
- 
+    
+    
     private ObservableList<Employee> employeeData = FXCollections.observableArrayList();
+    
+    
     
     public ObservableList<Employee> getEmployeeData() {
         return employeeData;
     }
+   
+    
+    public EmployeeController() {
+    	
+    	
+    }
+ 
+   
    
    
     
@@ -75,7 +78,7 @@ public class EmployeeController {
             Stage dialogStage = new Stage();
             dialogStage.setTitle("Edit Employee");
             dialogStage.initModality(Modality.WINDOW_MODAL);
-            dialogStage.initOwner(main.getPrimaryStage());
+            //dialogStage.initOwner(main.getPrimaryStage());
             Scene scene = new Scene(page);
             dialogStage.setScene(scene);
 
@@ -103,8 +106,14 @@ public class EmployeeController {
         firstNameColumn.setCellValueFactory(cellData -> cellData.getValue().firstNameProperty());
         lastNameColumn.setCellValueFactory(cellData -> cellData.getValue().lastNameProperty());
         
+        // Add some sample data
+        employeeData.add(new Employee(1, "Jeffrey", "Nadeau"));
+        employeeData.add(new Employee(2, "Travis", "Dreher"));
+        employeeData.add(new Employee(3, "Wilson", "Chau"));
+        employeeData.add(new Employee(4, "Shane", "Kelly"));
+        employeeTable.setItems(getEmployeeData());
         // Clear person details.
-        showEmployeeDetails(null);
+        showEmployeeDetails(employeeData.get(0));
 
         // Listen for selection changes and show the person details when changed.
         employeeTable.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> showEmployeeDetails(newValue));

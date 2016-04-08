@@ -1,6 +1,7 @@
 package jm.local;
 	
 import java.io.IOException;
+
 import jm.local.view.JobMasterGUIController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -16,7 +17,7 @@ import javafx.stage.Stage;
 public class Main extends Application {
 	
     private Stage primaryStage;
-	
+   
    
     
     @Override
