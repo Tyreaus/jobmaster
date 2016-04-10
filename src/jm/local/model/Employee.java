@@ -22,20 +22,21 @@ public class Employee {
 	private final StringProperty workStatus;
 	private final StringProperty systemStatus;
 	private final StringProperty resume;
+	private final StringProperty notes;
 	
 	
 
 	public Employee () {
-		this(0, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+		this(0, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
 	}
 	
 	public Employee(int id, String firstName, String lastName) {
-		this(id, firstName, lastName, null, null, null, null, null, null, null, null, null, null, null, null, null);
+		this(id, firstName, lastName, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
 	}
 	
 	public Employee (int id, String firstName, String lastName, String industry, String workType, String address, 
 			String city, String province, String postalCode, String phone, String email, String startDate, 
-			String endDate, String workStatus, String systemStatus, String resume) {
+			String endDate, String workStatus, String systemStatus, String resume, String notes) {
 		
 		this.id = new SimpleIntegerProperty(id);
 		this.firstName = new SimpleStringProperty(firstName);
@@ -53,6 +54,7 @@ public class Employee {
 		this.workStatus = new SimpleStringProperty(workStatus);
 		this.systemStatus = new SimpleStringProperty(systemStatus);
 		this.resume = new SimpleStringProperty(resume);
+		this.notes = new SimpleStringProperty(notes);
 		
         
 	}
@@ -122,6 +124,10 @@ public class Employee {
 	public String getResume() {
 		return resume.get();
 	}
+	
+	public String getNotes() {
+		return notes.get();
+	}
 
 	
 // Set Methods ************************************************************************************
@@ -190,7 +196,9 @@ public class Employee {
 		this.resume.set(resume);
 	}
 	
-	
+	public void setNotes(String notes) {
+		this.notes.set(notes);
+	}
 // Property Methods***************************************************************************
 	
 	public IntegerProperty idProperty() {
@@ -255,6 +263,10 @@ public class Employee {
 
 	public StringProperty resumeProperty() {
 		return resume;
+	}
+	
+	public StringProperty notesProperty() {
+		return notes;
 	}
 
 }
