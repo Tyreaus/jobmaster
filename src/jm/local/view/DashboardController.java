@@ -30,9 +30,8 @@ public class DashboardController {
 	@FXML
 	private TableView<String> dashboardTable;
 	
-	//Reference to main application
 	
-	private Main mainApp;
+	
 	
     /**
      * The constructor.
@@ -120,13 +119,6 @@ public class DashboardController {
     	*/
     }//end setTable
     
-    /**
-     * Is called by the main application to give a reference back to itself.
-     * 
-     * @param mainApp
-     */
-    public void setMainApp(Main mainApp) {
-        this.mainApp = mainApp;
-    }//end setMainApp
-	
+   
+   
 }//end JobMasterController

@@ -15,7 +15,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
@@ -57,18 +56,7 @@ public class EmployeeController {
 	@FXML
 	private TableColumn<Employee, String> notesColumn;
 
-	@FXML
-	private TextField idField;
-	@FXML
-	private TextField firstNameField;
-	@FXML
-	private TextField lastNameField;
-	@FXML
-	private TextField industryField;
-	@FXML
-	private TextField workTypeField;
-	@FXML
-	private TextField addressField;
+	
 
 	private ObservableList<Employee> employeeData;
 	
@@ -131,8 +119,8 @@ public class EmployeeController {
 		employeeTable.setItems(employeeData);
 		// Listen for selection changes and show the person details when
 		// changed.
-		employeeTable.getSelectionModel().selectedItemProperty()
-				.addListener((observable, oldValue, newValue) -> showEmployeeDetails(newValue));
+		//employeeTable.getSelectionModel().selectedItemProperty()
+		//		.addListener((observable, oldValue, newValue) -> showEmployeeDetails(newValue));
 	}
 
 	
@@ -177,7 +165,7 @@ public class EmployeeController {
 	 *            the person or null
 	 */
 
-	private void showEmployeeDetails(Employee employee) {
+	/*private void showEmployeeDetails(Employee employee) {
 		if (employee != null) {
 			// Fill the labels with info from the person object.
 			idField.setText(Integer.toString(employee.getId()));
@@ -195,7 +183,7 @@ public class EmployeeController {
 			workTypeField.setText("");
 			addressField.setText("");
 		}
-	}
+	}*/
 
 	@FXML
 	private void handleDeleteEmployee() {
@@ -238,7 +226,7 @@ public class EmployeeController {
 		if (selectedPerson != null) {
 			boolean okClicked = showEmployeeEditDialog(selectedPerson);
 			if (okClicked) {
-				showEmployeeDetails(selectedPerson);
+				//showEmployeeDetails(selectedPerson);
 			}
 
 		} else {
@@ -253,13 +241,7 @@ public class EmployeeController {
 	}
 	
 
-	private void setColumnNames() {
-		Alert alert = new Alert(AlertType.INFORMATION);
-		alert.setTitle("WTF?");
-		
-		alert.setContentText(Integer.toString(columnNames.size()));
-
-		alert.showAndWait();
+	private void setColumnNames() {				
 		for (int i = 1; i < columnNames.size(); i++) {
 			employeeTable.getColumns().get(i - 1).setText(columnNames.get(i));			
 		}

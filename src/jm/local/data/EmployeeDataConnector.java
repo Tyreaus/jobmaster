@@ -104,7 +104,7 @@ public class EmployeeDataConnector {
 	private void setColumnNames(ResultSetMetaData rsMetaData) throws SQLException {
 		for (int i = 0; i < rsMetaData.getColumnCount(); i++) {
 			this.columnNames.add(rsMetaData.getColumnName(i + 1));
-			System.out.println(this.columnNames.get(i));
+			//System.out.println(this.columnNames.get(i));
 		}
 	}
 

@@ -14,138 +14,80 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<ScrollPane xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1"
-	fx:controller="jm.local.view.EmployeeController">
+<ScrollPane xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jm.local.view.EmployeeController">
 	<content>
-		<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="620.0"
-			prefWidth="950.0">
+		<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="620.0" prefWidth="950.0">
 			<children>
-				<Label alignment="CENTER" layoutX="218.0" layoutY="27.0"
-					prefHeight="46.0" prefWidth="73.0" text="Search" textAlignment="CENTER">
+				<Label alignment="CENTER" layoutX="218.0" layoutY="27.0" prefHeight="46.0" prefWidth="73.0" text="Search" textAlignment="CENTER">
 					<font>
 						<Font name="System Bold" size="15.0" />
 					</font>
 				</Label>
-				<Separator layoutX="320.0" layoutY="32.0" orientation="VERTICAL"
-					prefHeight="156.0" prefWidth="14.0" />
-				<TextField layoutX="195.0" layoutY="83.0" prefHeight="25.0"
-					prefWidth="118.0" />
-				<Button layoutX="201.0" layoutY="120.0" mnemonicParsing="false"
-					prefHeight="25.0" prefWidth="107.0" text="Advanced Search" />
-				<Label alignment="CENTER" layoutX="353.0" layoutY="27.0"
-					prefHeight="46.0" prefWidth="73.0" text="Employee" textAlignment="CENTER">
+				<Separator layoutX="320.0" layoutY="32.0" orientation="VERTICAL" prefHeight="156.0" prefWidth="14.0" />
+				<TextField layoutX="196.0" layoutY="74.0" prefHeight="25.0" prefWidth="118.0" />
+				<Button layoutX="202.0" layoutY="105.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="107.0" text="Advanced Search" />
+				<Label alignment="CENTER" layoutX="353.0" layoutY="27.0" prefHeight="46.0" prefWidth="73.0" text="Employee" textAlignment="CENTER">
 					<font>
 						<Font name="System Bold" size="15.0" />
 					</font>
 				</Label>
-				<Button layoutX="336.0" layoutY="83.0" mnemonicParsing="false"
-					onAction="#handleEditEmployee" prefHeight="25.0" prefWidth="107.0"
-					text="View Profile" />
-				<Button layoutX="336.0" layoutY="116.0" mnemonicParsing="false"
-					onAction="#handleNewEmployee" prefHeight="25.0" prefWidth="107.0"
-					text="Add New" />
-				<Button layoutX="336.0" layoutY="147.0" mnemonicParsing="false"
-					onAction="#handleDeleteEmployee" prefHeight="25.0" prefWidth="107.0"
-					text="Remove" />
-				<Separator layoutX="450.0" layoutY="32.0" orientation="VERTICAL"
-					prefHeight="156.0" prefWidth="14.0" />
-				<Label alignment="CENTER" layoutX="495.0" layoutY="27.0"
-					prefHeight="46.0" prefWidth="73.0" text="Filter" textAlignment="CENTER">
+				<Button layoutX="336.0" layoutY="74.0" mnemonicParsing="false" onAction="#handleEditEmployee" prefHeight="25.0" prefWidth="107.0" text="View Profile" />
+				<Button layoutX="336.0" layoutY="105.0" mnemonicParsing="false" onAction="#handleNewEmployee" prefHeight="25.0" prefWidth="107.0" text="Add New" />
+				<Button layoutX="336.0" layoutY="136.0" mnemonicParsing="false" onAction="#handleDeleteEmployee" prefHeight="25.0" prefWidth="107.0" text="Remove" />
+				<Separator layoutX="450.0" layoutY="32.0" orientation="VERTICAL" prefHeight="156.0" prefWidth="14.0" />
+				<Label alignment="CENTER" layoutX="495.0" layoutY="27.0" prefHeight="46.0" prefWidth="73.0" text="Filter" textAlignment="CENTER">
 					<font>
 						<Font name="System Bold" size="15.0" />
 					</font>
 				</Label>
-				<ComboBox layoutX="464.0" layoutY="73.0" prefHeight="25.0"
-					prefWidth="135.0" style="-fx-background-color: white; -fx-border-color: grey;" />
-				<Separator layoutX="601.0" layoutY="32.0" orientation="VERTICAL"
-					prefHeight="156.0" prefWidth="14.0" />
-				<Label alignment="CENTER" layoutX="647.0" layoutY="27.0"
-					prefHeight="46.0" prefWidth="73.0" text="Sort By" textAlignment="CENTER">
+				<ComboBox layoutX="464.0" layoutY="73.0" prefHeight="25.0" prefWidth="135.0" style="-fx-background-color: white; -fx-border-color: grey;" />
+				<Separator layoutX="601.0" layoutY="32.0" orientation="VERTICAL" prefHeight="156.0" prefWidth="14.0" />
+				<Label alignment="CENTER" layoutX="647.0" layoutY="27.0" prefHeight="46.0" prefWidth="73.0" text="Sort By" textAlignment="CENTER">
 					<font>
 						<Font name="System Bold" size="15.0" />
 					</font>
 				</Label>
-				<ComboBox layoutX="622.0" layoutY="83.0" prefHeight="25.0"
-					prefWidth="123.0" />
-				<Button layoutX="656.0" layoutY="117.0" mnemonicParsing="false"
-					prefHeight="25.0" prefWidth="89.0" text="Apply" />
-				<Button layoutX="656.0" layoutY="147.0" mnemonicParsing="false"
-					prefHeight="25.0" prefWidth="89.0" text="Clear" />
-				<ComboBox layoutX="464.0" layoutY="101.0" prefHeight="25.0"
-					prefWidth="135.0" />
-				<ComboBox layoutX="464.0" layoutY="128.0" prefHeight="25.0"
-					prefWidth="135.0" />
-				<ComboBox layoutX="464.0" layoutY="155.0" prefHeight="25.0"
-					prefWidth="135.0" />
-				<TableView fx:id="employeeTable" tableMenuButtonVisible="true"
-					AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0"
-					AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="225.0">
+				<ComboBox layoutX="615.0" layoutY="74.0" prefHeight="25.0" prefWidth="123.0" />
+				<Button layoutX="649.0" layoutY="108.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="89.0" text="Apply" />
+				<Button layoutX="649.0" layoutY="139.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="89.0" text="Clear" />
+				<ComboBox layoutX="464.0" layoutY="101.0" prefHeight="25.0" prefWidth="135.0" />
+				<ComboBox layoutX="464.0" layoutY="128.0" prefHeight="25.0" prefWidth="135.0" />
+				<ComboBox layoutX="464.0" layoutY="155.0" prefHeight="25.0" prefWidth="135.0" />
+				<TableView fx:id="employeeTable" tableMenuButtonVisible="true" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="225.0">
 					<columns>
-						<TableColumn fx:id="firstNameColumn" prefWidth="75.0"
-							text="C1" />
-						<TableColumn fx:id="lastNameColumn" prefWidth="75.0"
-							text="C2" />
-						<TableColumn fx:id="industryColumn" prefWidth="75.0"
-							text="C3" />
-						<TableColumn fx:id="workTypeColumn" prefWidth="75.0"
-							text="C4" />
-						<TableColumn fx:id="addressColumn" prefWidth="75.0"
-							text="C5" />
+						<TableColumn fx:id="firstNameColumn" prefWidth="75.0" text="C1" />
+						<TableColumn fx:id="lastNameColumn" prefWidth="75.0" text="C2" />
+						<TableColumn fx:id="industryColumn" prefWidth="75.0" text="C3" />
+						<TableColumn fx:id="workTypeColumn" prefWidth="75.0" text="C4" />
+						<TableColumn fx:id="addressColumn" prefWidth="75.0" text="C5" />
 						<TableColumn fx:id="cityColumn" prefWidth="75.0" text="C6" />
-						<TableColumn fx:id="provinceColumn" prefWidth="75.0"
-							text="C7" />
-						<TableColumn fx:id="postalCodeColumn" prefWidth="75.0"
-							text="C8" />
-						<TableColumn fx:id="phoneColumn" prefWidth="75.0"
-							text="C9" />
-						<TableColumn fx:id="emailColumn" prefWidth="75.0"
-							text="C10" />
-						<TableColumn fx:id="startDateColumn" prefWidth="75.0"
-							text="C11" />
-						<TableColumn fx:id="enddateColumn" prefWidth="75.0"
-							text="C12" />
-						<TableColumn fx:id="workStatusColumn" prefWidth="75.0"
-							text="C14" />
-						<TableColumn fx:id="systemStatusColumn" prefWidth="75.0"
-							text="C15" />
-						<TableColumn fx:id="resumeColumn" prefWidth="75.0"
-							text="C16" />
-						<TableColumn fx:id="notesColumn" prefWidth="75.0"
-							text="C17" />
+						<TableColumn fx:id="provinceColumn" prefWidth="75.0" text="C7" />
+						<TableColumn fx:id="postalCodeColumn" prefWidth="75.0" text="C8" />
+						<TableColumn fx:id="phoneColumn" prefWidth="75.0" text="C9" />
+						<TableColumn fx:id="emailColumn" prefWidth="75.0" text="C10" />
+						<TableColumn fx:id="startDateColumn" prefWidth="75.0" text="C11" />
+						<TableColumn fx:id="enddateColumn" prefWidth="75.0" text="C12" />
+						<TableColumn fx:id="workStatusColumn" prefWidth="75.0" text="C14" />
+						<TableColumn fx:id="systemStatusColumn" prefWidth="75.0" text="C15" />
+						<TableColumn fx:id="resumeColumn" prefWidth="75.0" text="C16" />
+						<TableColumn fx:id="notesColumn" prefWidth="75.0" text="C17" />
 					</columns>
 				</TableView>
-				<GridPane layoutX="14.0" layoutY="12.0" prefHeight="206.0"
-					prefWidth="167.0" AnchorPane.leftAnchor="10.0"
-					AnchorPane.topAnchor="10.0">
+				<GridPane layoutX="14.0" layoutY="12.0" prefHeight="206.0" prefWidth="149.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
 					<columnConstraints>
-						<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"
-							prefWidth="100.0" />
+						<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
 					</columnConstraints>
 					<rowConstraints>
-						<RowConstraints minHeight="10.0" prefHeight="30.0"
-							vgrow="SOMETIMES" />
-						<RowConstraints minHeight="10.0" prefHeight="30.0"
-							vgrow="SOMETIMES" />
-						<RowConstraints minHeight="10.0" prefHeight="30.0"
-							vgrow="SOMETIMES" />
-						<RowConstraints minHeight="10.0" prefHeight="30.0"
-							vgrow="SOMETIMES" />
-						<RowConstraints minHeight="10.0" prefHeight="30.0"
-							vgrow="SOMETIMES" />
-						<RowConstraints minHeight="10.0" prefHeight="30.0"
-							vgrow="SOMETIMES" />
-						<RowConstraints minHeight="10.0" prefHeight="30.0"
-							vgrow="SOMETIMES" />
+						<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+						<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+						<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+						<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+						<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+						<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+						<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
 					</rowConstraints>
 					<children>
-						<Button mnemonicParsing="false" prefHeight="25.0"
-							prefWidth="70.0" text="Print" />
-						<TextField fx:id="idField" GridPane.rowIndex="1" />
-						<TextField fx:id="firstNameField" GridPane.rowIndex="2" />
-						<TextField fx:id="lastNameField" GridPane.rowIndex="3" />
-						<TextField fx:id="addressField" GridPane.rowIndex="4" />
-						<TextField fx:id="industryField" GridPane.rowIndex="5" />
-						<TextField fx:id="workTypeField" GridPane.rowIndex="6" />
+						<Button mnemonicParsing="false" prefHeight="25.0" prefWidth="70.0" text="Print List" />
 					</children>
 				</GridPane>
 			</children>
