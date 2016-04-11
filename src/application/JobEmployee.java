@@ -23,7 +23,7 @@ public class JobEmployee {
 		setNotes("");
 	}
 	
-	public Employee (int id, int jobId, int employeeId, String jobType, double salaryWage, String startDate, 
+	public JobEmployee (int id, int jobId, int employeeId, String jobType, double salaryWage, String startDate, 
 			String endDate, double perDiem, String notes) {
 		setId(id);
 		setJobId(jobId);
