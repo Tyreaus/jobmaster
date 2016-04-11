@@ -15,9 +15,10 @@ public class Client {
 	private String industry;
 	private String systemStatus;
 	private String notes;
+	private static int currentId = 0;
 
 	public Client () {
-		setId(0);
+		setId(currentId);
 		setCompany("");
 		setContact("");
 		setAddress("");
