@@ -279,7 +279,12 @@ public class EmployeeController {
 	@FXML
 	private void handleIndustryFilterComboBox() {
 		this.industryFilterComboBox.setOnAction((event) -> {
-		    Integer selectedIndustry = this.industryFilterComboBox.getSelectionModel().getSelectedIndex();
+		    Integer selectedIndustry = this.industryFilterComboBox.getSelectionModel().getSelectedIndex() + 1;
+		    Alert alert = new Alert(AlertType.WARNING);
+			
+			alert.setContentText("Selected Index: " + Integer.toString(selectedIndustry));
+			alert.showAndWait();
+			
 		    this.filterCriteria.set(0, selectedIndustry);		    
 	    	getFilteredEmployeeData();	   
 		    
@@ -290,7 +295,7 @@ public class EmployeeController {
 	@FXML
 	private void handleCategoryFilterComboBox() {
 		this.categoryFilterComboBox.setOnAction((event) -> {
-		    Integer selectedCategory = this.categoryFilterComboBox.getSelectionModel().getSelectedIndex();
+		    Integer selectedCategory = this.categoryFilterComboBox.getSelectionModel().getSelectedIndex() + 1;
 		    this.filterCriteria.set(1, selectedCategory);		    
 		    getFilteredEmployeeData();
 		    
@@ -300,7 +305,7 @@ public class EmployeeController {
 	@FXML
 	private void handleSystemStatusFilterComboBox() {
 		this.systemStatusFilterComboBox.setOnAction((event) -> {
-		    Integer selectedSystemStatus = this.systemStatusFilterComboBox.getSelectionModel().getSelectedIndex();
+		    Integer selectedSystemStatus = this.systemStatusFilterComboBox.getSelectionModel().getSelectedIndex() + 1;
 		    this.filterCriteria.set(2, selectedSystemStatus);		    
 		    getFilteredEmployeeData();
 		});
@@ -309,7 +314,7 @@ public class EmployeeController {
 	@FXML
 	private void handleWorkStatusFilterComboBox() {
 		this.workStatusFilterComboBox.setOnAction((event) -> {
-		    Integer selectedWorkStatus = this.workStatusFilterComboBox.getSelectionModel().getSelectedIndex();
+		    Integer selectedWorkStatus = this.workStatusFilterComboBox.getSelectionModel().getSelectedIndex() + 1;
 		    this.filterCriteria.set(3, selectedWorkStatus);		    
 		    getFilteredEmployeeData();
 		});
