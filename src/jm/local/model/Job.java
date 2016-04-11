@@ -21,31 +21,12 @@ public class Job {
 	
 
 	public Job () {
-		this.id = null;
-		this.clientId = null;
-		this.description = null;
-		this.address = null;
-		this.city = null;
-		this.province = null;
-		this.postalCode = null;
-		this.startDate = null;
-		this.endDate = null;
-		this.markup = null;
-		this.notes = null;
+		this(0, 0, null, null, null, null, null, null, null, null, null);		
 	}
 	
 	public Job(int id, int clientId) {
-		this.id = new SimpleIntegerProperty(id);
-		this.clientId = new SimpleIntegerProperty(clientId);
-		this.description = null;
-		this.address = null;
-		this.city = null;
-		this.province = null;
-		this.postalCode = null;
-		this.startDate = null;
-		this.endDate = null;
-		this.markup = null;
-		this.notes = null;
+		this(id, clientId, null, null, null, null, null, null, null, null, null);
+		
 	}
 	
 	public Job (int id, int clientId, String description, String address, 

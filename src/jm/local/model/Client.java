@@ -22,39 +22,13 @@ public class Client {
 	private final StringProperty notes;
 	
 	
-
 	public Client () {
-		this.id = null;
-		this.company = null;
-		this.contact = null;
-		this.address = null;
-		this.city = null;
-		this.province = null;
-		this.postalCode = null;
-		this.phone = null;
-		this.email = null;
-		this.startDate = null;
-		this.endDate = null;
-		this.industry = null;
-		this.systemStatus = null;
-		this.notes = null;
+		this(0, null, null, null, null, null, null, null, null, null, null, null, null, null);		
 	}
 	
 	public Client(int id, String company, String contact) {
-		this.id = new SimpleIntegerProperty(id);
-		this.company = new SimpleStringProperty(company);
-		this.contact = new SimpleStringProperty(contact);
-		this.address = null;
-		this.city = null;
-		this.province = null;
-		this.postalCode = null;
-		this.phone = null;
-		this.email = null;
-		this.startDate = null;
-		this.endDate = null;
-		this.industry = null;
-		this.systemStatus = null;
-		this.notes = null;
+		this(id, company, contact, null, null, null, null, null, null, null, null, null, null, null);
+		
 	}
 	
 	public Client (int id, String company, String contact, String address, 

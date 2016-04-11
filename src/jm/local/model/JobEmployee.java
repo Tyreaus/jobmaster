@@ -21,27 +21,12 @@ public class JobEmployee {
 	
 
 	public JobEmployee () {
-		this.id = null;
-		this.jobId = null;
-		this.employeeId = null;
-		this.jobType = null;
-		this.salaryWage = null;
-		this.startDate = null;
-		this.endDate = null;
-		this.perDiem = null;
-		this.notes = null;
+		this(0, 0, 0, null, 0, null, null, 0, null);		
 	}
 	
-	public JobEmployee (int id, int jobId, int employeeId) {
-		this.id = new SimpleIntegerProperty(id);
-		this.jobId = new SimpleIntegerProperty(jobId);
-		this.employeeId = new SimpleIntegerProperty(employeeId);
-		this.jobType = null;
-		this.salaryWage = null;
-		this.startDate = null;
-		this.endDate = null;
-		this.perDiem = null;
-		this.notes = null;
+	public JobEmployee(int id, int jobId, int employeeId) {
+		this(id, jobId, employeeId, null, 0, null, null, 0, null);
+		
 	}
 	
 	public JobEmployee (int id, int jobId, int employeeId, String jobType, 
