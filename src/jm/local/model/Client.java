@@ -1,166 +1,256 @@
 package jm.local.model;
 
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+
 public class Client {
-	private int id;
-	private String company;
-	private String contact;
-	private String address;
-	private String city;
-	private String province;
-	private String postalCode;
-	private String phone;
-	private String email;
-	private String startDate;
-	private String endDate;
-	private String industry;
-	private String systemStatus;
-	private String notes;
+	private final IntegerProperty id;
+	private final StringProperty company;
+	private final StringProperty contact;
+	private final StringProperty address;
+	private final StringProperty city;
+	private final StringProperty province;
+	private final StringProperty postalCode;
+	private final StringProperty phone;
+	private final StringProperty email;
+	private final StringProperty startDate;
+	private final StringProperty endDate;
+	private final StringProperty industry;
+	private final StringProperty systemStatus;
+	private final StringProperty notes;
+	
+	
 
 	public Client () {
-		setId(0);
-		setCompany("");
-		setContact("");
-		setAddress("");
-		setCity("");
-		setProvince("");
-		setPostalCode("");
-		setPhone("");
-		setEmail("");
-		setStartDate("");
-		setEndDate("");
-		setIndustry("");
-		setSystemStatus("");
-		setNotes("");
+		this.id = null;
+		this.company = null;
+		this.contact = null;
+		this.address = null;
+		this.city = null;
+		this.province = null;
+		this.postalCode = null;
+		this.phone = null;
+		this.email = null;
+		this.startDate = null;
+		this.endDate = null;
+		this.industry = null;
+		this.systemStatus = null;
+		this.notes = null;
 	}
 	
-	public Client (int id, String company, String contact, String workType, String address, 
+	public Client(int id, String company, String contact) {
+		this.id = new SimpleIntegerProperty(id);
+		this.company = new SimpleStringProperty(company);
+		this.contact = new SimpleStringProperty(contact);
+		this.address = null;
+		this.city = null;
+		this.province = null;
+		this.postalCode = null;
+		this.phone = null;
+		this.email = null;
+		this.startDate = null;
+		this.endDate = null;
+		this.industry = null;
+		this.systemStatus = null;
+		this.notes = null;
+	}
+	
+	public Client (int id, String company, String contact, String address, 
 			String city, String province, String postalCode, String phone, String email, String startDate, 
 			String endDate, String industry, String systemStatus, String notes) {
-		setId(id);
-		setCompany(company);
-		setContact(contact);
-		setAddress(address);
-		setCity(city);
-		setProvince(province);
-		setPostalCode(postalCode);
-		setPhone(phone);
-		setEmail(email);
-		setStartDate(startDate);
-		setEndDate(endDate);
-		setIndustry(industry);
-		setSystemStatus(systemStatus);
-		setNotes(notes);
+		
+		this.id = new SimpleIntegerProperty(id);
+		this.company = new SimpleStringProperty(company);
+		this.contact = new SimpleStringProperty(contact);
+		this.address = new SimpleStringProperty(address);
+		this.city = new SimpleStringProperty(city);
+		this.province = new SimpleStringProperty(province);
+		this.postalCode = new SimpleStringProperty(postalCode);
+		this.phone = new SimpleStringProperty(phone);
+		this.email = new SimpleStringProperty(email);
+		this.startDate = new SimpleStringProperty(startDate);
+		this.endDate = new SimpleStringProperty(endDate);
+		this.industry = new SimpleStringProperty(industry);
+		this.systemStatus = new SimpleStringProperty(systemStatus);
+		this.notes = new SimpleStringProperty(notes);
+		
+        
 	}
 
+	
+// Get Methods ***********************************************************************************
 	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
+		return id.get();
 	}
 
 	public String getCompany() {
-		return company;
-	}
-
-	public void setCompany(String company) {
-		this.company = company;
+		return company.get();
 	}
 
 	public String getContact() {
-		return contact;
-	}
-
-	public void setContact(String contact) {
-		this.contact = contact;
+		return contact.get();
 	}
 
 	public String getAddress() {
-		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
+		return address.get();
 	}
 
 	public String getCity() {
-		return city;
-	}
-
-	public void setCity(String city) {
-		this.city = city;
+		return city.get();
 	}
 
 	public String getProvince() {
-		return province;
-	}
-
-	public void setProvince(String province) {
-		this.province = province;
+		return province.get();
 	}
 
 	public String getPostalCode() {
-		return postalCode;
+		return postalCode.get();
 	}
-
-	public void setPostalCode(String postalCode) {
-		this.postalCode = postalCode;
-	}
-
+	
 	public String getPhone() {
-		return phone;
+		return phone.get();
 	}
-
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
-
+	
 	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
+		return email.get();
 	}
 
 	public String getStartDate() {
-		return startDate;
-	}
-
-	public void setStartDate(String startDate) {
-		this.startDate = startDate;
+		return startDate.get();
 	}
 
 	public String getEndDate() {
-		return endDate;
+		return endDate.get();
+	}
+
+	public String getIndustry() {
+		return industry.get();
+	}
+	
+	public String getSystemStatus() {
+		return systemStatus.get();
+	}
+	
+	public String getNotes() {
+		return notes.get();
+	}
+
+	
+// Set Methods ************************************************************************************
+	
+	public void setId(int id) {
+		this.id.set(id);
+	}
+
+	public void setCompany(String company) {
+		this.company.set(company);
+	}
+
+	public void setContact(String contact) {
+		this.contact.set(contact);
+	}
+
+	public void setAddress(String address) {
+		this.address.set(address);
+	}
+
+	public void setCity(String city) {
+		this.city.set(city);
+	}
+
+	public void setProvince(String province) {
+		this.province.set(province);
+	}
+
+	public void setPostalCode(String postalCode) {
+		this.postalCode.set(postalCode);
+	}
+	
+	public void setPhone(String phone) {
+		this.phone.set(phone);
+	}
+	
+	public void setEmail(String email) {
+		this.email.set(email);
+	}
+
+	public void setStartDate(String startDate) {
+		this.startDate.set(startDate);
 	}
 
 	public void setEndDate(String endDate) {
-		this.endDate = endDate;
-	}
-	
-	public String getIndustry() {
-		return industry;
+		this.endDate.set(endDate);
 	}
 
 	public void setIndustry(String industry) {
-		this.industry = industry;
+		this.industry.set(industry);
+	}
+	
+	public void setSystemStatus(String systemStatus) {
+		this.systemStatus.set(systemStatus);
+	}
+	
+	public void setNotes(String notes) {
+		this.notes.set(notes);
+	}
+// Property Methods***************************************************************************
+	
+	public IntegerProperty idProperty() {
+		return id;
+	}
+	
+	public StringProperty companyProperty() {
+		return company;
+	}
+	
+	public StringProperty contactProperty() {
+		return contact;
 	}
 
-	public String getSystemStatus() {
+	public StringProperty addressProperty() {
+		return address;
+	}
+
+	public StringProperty cityProperty() {
+		return city;
+	}
+
+	public StringProperty provinceProperty() {
+		return province;
+	}
+
+	public StringProperty postalCodeProperty() {
+		return postalCode;
+	}
+	
+	public StringProperty phoneProperty() {
+		return phone;
+	}
+	
+	public StringProperty emailProperty() {
+		return email;
+	}
+
+	public StringProperty startDateProperty() {
+		return startDate;
+	}
+
+	public StringProperty endDateProperty() {
+		return endDate;
+	}
+
+	public StringProperty industryProperty() {
+		return industry;
+	}
+	
+	public StringProperty systemStatusProperty() {
 		return systemStatus;
 	}
-
-	public void setSystemStatus(String systemStatus) {
-		this.systemStatus = systemStatus;
-	}
-
-	public String getNotes() {
+	
+	public StringProperty notesProperty() {
 		return notes;
 	}
 
-	public void setNotes(String notes) {
-		this.notes = notes;
-	}
 }

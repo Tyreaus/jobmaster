@@ -27,11 +27,43 @@ public class Employee {
 	
 
 	public Employee () {
-		this(0, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+		this.id = null;
+		this.firstName = null;
+		this.lastName = null;
+		this.industry = null;
+		this.workType = null;
+		this.address = null;
+		this.city = null;
+		this.province = null;
+		this.postalCode = null;
+		this.phone = null;
+		this.email = null;
+		this.startDate = null;
+		this.endDate = null;
+		this.workStatus = null;
+		this.systemStatus = null;
+		this.resume = null;
+		this.notes = null;
 	}
 	
 	public Employee(int id, String firstName, String lastName) {
-		this(id, firstName, lastName, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+		this.id = new SimpleIntegerProperty(id);
+		this.firstName = new SimpleStringProperty(firstName);
+		this.lastName = new SimpleStringProperty(lastName);
+		this.industry = null;
+		this.workType = null;
+		this.address = null;
+		this.city = null;
+		this.province = null;
+		this.postalCode = null;
+		this.phone = null;
+		this.email = null;
+		this.startDate = null;
+		this.endDate = null;
+		this.workStatus = null;
+		this.systemStatus = null;
+		this.resume = null;
+		this.notes = null;
 	}
 	
 	public Employee (int id, String firstName, String lastName, String industry, String workType, String address, 
