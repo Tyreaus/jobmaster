@@ -25,6 +25,172 @@ public class EmployeeDataConnector {
 	static final String PASS = "HCmXjHh5GG5Jvqd2";
 	
 	
+	public ObservableList<String> getIndustries() {
+		ObservableList<String> industries = FXCollections.observableArrayList();
+		Connection conn = null;
+		try {
+			// STEP 2: Register JDBC driver
+			Class.forName("com.mysql.jdbc.Driver");
+
+			// STEP 3: Open a connection
+			conn = DriverManager.getConnection(DB_URL, USER, PASS);
+
+			CallableStatement cs = conn.prepareCall("{call getIndustries}");
+			ResultSet rs = cs.executeQuery();
+
+			while(rs.next())
+			{
+				industries.add(rs.getString("industry_type"));
+			}
+			
+
+			rs.close();
+			conn.close();
+		} catch (SQLException se) {
+			// Handle errors for JDBC
+			se.printStackTrace();
+		} catch (Exception e) {
+			// Handle errors for Class.forName
+			e.printStackTrace();
+		} finally {
+			// finally block used to close resources
+			try {
+				if (conn != null)
+					conn.close();
+			} catch (SQLException se) {
+				se.printStackTrace();
+			} // end finally try
+
+		} // end try
+		
+		return industries;
+	}
+	
+	public ObservableList<String> getCategories() {
+		ObservableList<String> categories = FXCollections.observableArrayList();;
+		Connection conn = null;
+		try {
+			// STEP 2: Register JDBC driver
+			Class.forName("com.mysql.jdbc.Driver");
+
+			// STEP 3: Open a connection
+			conn = DriverManager.getConnection(DB_URL, USER, PASS);
+
+			CallableStatement cs = conn.prepareCall("{call getCategories}");
+			ResultSet rs = cs.executeQuery();
+
+			while(rs.next())
+			{
+				categories.add(rs.getString("category_type"));
+			}
+			
+
+			rs.close();
+			conn.close();
+		} catch (SQLException se) {
+			// Handle errors for JDBC
+			se.printStackTrace();
+		} catch (Exception e) {
+			// Handle errors for Class.forName
+			e.printStackTrace();
+		} finally {
+			// finally block used to close resources
+			try {
+				if (conn != null)
+					conn.close();
+			} catch (SQLException se) {
+				se.printStackTrace();
+			} // end finally try
+
+		} // end try
+		
+		
+		return categories;
+	}
+	
+	public ObservableList<String> getSystemStatuses() {
+		ObservableList<String> systemStatuses = FXCollections.observableArrayList();;
+		Connection conn = null;
+		try {
+			// STEP 2: Register JDBC driver
+			Class.forName("com.mysql.jdbc.Driver");
+
+			// STEP 3: Open a connection
+			conn = DriverManager.getConnection(DB_URL, USER, PASS);
+
+			CallableStatement cs = conn.prepareCall("{call getSystemStatuses}");
+			ResultSet rs = cs.executeQuery();
+			
+			while(rs.next())
+			{
+				systemStatuses.add(rs.getString("Status_Type"));
+			}
+			
+
+			rs.close();
+			conn.close();
+		} catch (SQLException se) {
+			// Handle errors for JDBC
+			se.printStackTrace();
+		} catch (Exception e) {
+			// Handle errors for Class.forName
+			e.printStackTrace();
+		} finally {
+			// finally block used to close resources
+			try {
+				if (conn != null)
+					conn.close();
+			} catch (SQLException se) {
+				se.printStackTrace();
+			} // end finally try
+
+		} // end try
+		
+		
+		return systemStatuses;
+	}
+	
+	public ObservableList<String> getWorkStatuses() {
+		ObservableList<String> workStatuses = FXCollections.observableArrayList();;
+		Connection conn = null;
+		try {
+			// STEP 2: Register JDBC driver
+			Class.forName("com.mysql.jdbc.Driver");
+
+			// STEP 3: Open a connection
+			conn = DriverManager.getConnection(DB_URL, USER, PASS);
+
+			CallableStatement cs = conn.prepareCall("{call getWorkStatuses}");
+			ResultSet rs = cs.executeQuery();
+
+			while(rs.next())
+			{
+				workStatuses.add(rs.getString("Work_Status_Type"));
+			}
+			
+
+			rs.close();
+			conn.close();
+		} catch (SQLException se) {
+			// Handle errors for JDBC
+			se.printStackTrace();
+		} catch (Exception e) {
+			// Handle errors for Class.forName
+			e.printStackTrace();
+		} finally {
+			// finally block used to close resources
+			try {
+				if (conn != null)
+					conn.close();
+			} catch (SQLException se) {
+				se.printStackTrace();
+			} // end finally try
+
+		} // end try
+		
+		
+		return workStatuses;
+	}
 	
 
 	public ObservableList<Employee> getAllEmployeeData() {
@@ -112,6 +278,46 @@ public class EmployeeDataConnector {
 		return this.columnNames;
 	}
 
-	
+	public ObservableList<Employee> getFilteredEmployeeData(Integer industryFilter, Integer categoryFilter, Integer systemStatusFilter, Integer workStatusFilter) {
+		ObservableList<Employee> employeeData = null;
+		Connection conn = null;
+		try {
+			// STEP 2: Register JDBC driver
+			Class.forName("com.mysql.jdbc.Driver");
+
+			// STEP 3: Open a connection
+			conn = DriverManager.getConnection(DB_URL, USER, PASS);
+
+			CallableStatement cs = conn.prepareCall("{call getFilteredEmployeeData(?,?,?,?)}");
+			cs.setInt(1, industryFilter);
+			cs.setInt(2, categoryFilter);
+			cs.setInt(3, systemStatusFilter);
+			cs.setInt(4, workStatusFilter);
+			ResultSet rs = cs.executeQuery();
+
+			setColumnNames(rs.getMetaData());
+
+			employeeData = fillEmployeeRecords(rs);
+
+			rs.close();
+			conn.close();
+		} catch (SQLException se) {
+			// Handle errors for JDBC
+			se.printStackTrace();
+		} catch (Exception e) {
+			// Handle errors for Class.forName
+			e.printStackTrace();
+		} finally {
+			// finally block used to close resources
+			try {
+				if (conn != null)
+					conn.close();
+			} catch (SQLException se) {
+				se.printStackTrace();
+			} // end finally try
+
+		} // end try
+		return employeeData;
+	}
 
 }

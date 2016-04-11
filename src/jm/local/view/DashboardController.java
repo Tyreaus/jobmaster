@@ -11,7 +11,6 @@ import javafx.scene.chart.XYChart.Series;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
 import javafx.scene.control.ComboBox;
-import jm.local.Main;
 
 public class DashboardController {
 
@@ -109,16 +108,16 @@ public class DashboardController {
     	
     }//end setBarChart
     
-    private void setTable(){
+    /*private void setTable(){
     	
-    	/*
+    	
     		//Assuming getData() exists and returns proper object type
     	private ObservableList<String> tableData = getData();
     	dashboardTable.setItems(tableData);
     		//May also be re-worked with other set chart methods
-    	*/
+    	
     }//end setTable
-    
+*/    
    
    
 }//end JobMasterController

@@ -40,7 +40,7 @@
 						<Font name="System Bold" size="15.0" />
 					</font>
 				</Label>
-				<ComboBox layoutX="464.0" layoutY="73.0" prefHeight="25.0" prefWidth="135.0" style="-fx-background-color: white; -fx-border-color: grey;" />
+				<ComboBox fx:id="industryFilterComboBox" layoutX="464.0" layoutY="73.0" onAction="#handleIndustryFilterComboBox" prefHeight="25.0" prefWidth="135.0" promptText="Industry" />
 				<Separator layoutX="601.0" layoutY="32.0" orientation="VERTICAL" prefHeight="156.0" prefWidth="14.0" />
 				<Label alignment="CENTER" layoutX="647.0" layoutY="27.0" prefHeight="46.0" prefWidth="73.0" text="Sort By" textAlignment="CENTER">
 					<font>
@@ -50,9 +50,9 @@
 				<ComboBox layoutX="615.0" layoutY="74.0" prefHeight="25.0" prefWidth="123.0" />
 				<Button layoutX="649.0" layoutY="108.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="89.0" text="Apply" />
 				<Button layoutX="649.0" layoutY="139.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="89.0" text="Clear" />
-				<ComboBox layoutX="464.0" layoutY="101.0" prefHeight="25.0" prefWidth="135.0" />
-				<ComboBox layoutX="464.0" layoutY="128.0" prefHeight="25.0" prefWidth="135.0" />
-				<ComboBox layoutX="464.0" layoutY="155.0" prefHeight="25.0" prefWidth="135.0" />
+				<ComboBox fx:id="categoryFilterComboBox" layoutX="464.0" layoutY="101.0" onAction="#handleCategoryFilterComboBox" prefHeight="25.0" prefWidth="135.0" promptText="Category" />
+				<ComboBox fx:id="systemStatusFilterComboBox" layoutX="464.0" layoutY="128.0" onAction="#handleSystemStatusFilterComboBox" prefHeight="25.0" prefWidth="135.0" promptText="System Status" />
+				<ComboBox fx:id="workStatusFilterComboBox" layoutX="464.0" layoutY="155.0" onAction="#handleWorkStatusFilterComboBox" prefHeight="25.0" prefWidth="135.0" promptText="Work Status" />
 				<TableView fx:id="employeeTable" tableMenuButtonVisible="true" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="225.0">
 					<columns>
 						<TableColumn fx:id="firstNameColumn" prefWidth="75.0" text="C1" />

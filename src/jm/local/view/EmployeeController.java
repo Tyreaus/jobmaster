@@ -6,6 +6,7 @@ import jm.local.model.Employee;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javafx.collections.ObservableList;
@@ -13,6 +14,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.ListCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.Alert.AlertType;
@@ -56,11 +59,27 @@ public class EmployeeController {
 	@FXML
 	private TableColumn<Employee, String> notesColumn;
 
+	@FXML
+	private ComboBox<String> industryFilterComboBox;
+	@FXML
+	private ComboBox<String> categoryFilterComboBox;
+	@FXML
+	private ComboBox<String> systemStatusFilterComboBox;
+	@FXML
+	private ComboBox<String> workStatusFilterComboBox;
 	
 
 	private ObservableList<Employee> employeeData;
+	private ObservableList<String> industryFilterData;
+	private ObservableList<String> categoryFilterData;
+	private ObservableList<String> systemStatusFilterData;
+	private ObservableList<String> workStatusFilterData;
 	
-	private List<String> columnNames;
+	private List<String> columnNames = null;
+	private List<Integer> filterCriteria = null;
+	
+
+ 
 
 	/**
 	 * The constructor. The constructor is called before the initialize()
@@ -73,10 +92,11 @@ public class EmployeeController {
 	public void getAllEmployeeData() throws SQLException {
 		EmployeeDataConnector employeeConnector = new EmployeeDataConnector();
 		
-		columnNames = employeeConnector.getEmployeeColumnNames();		
+		this.columnNames = employeeConnector.getEmployeeColumnNames();		
 
-		employeeData = employeeConnector.getAllEmployeeData();
+		this.employeeData = employeeConnector.getAllEmployeeData();
 	}
+	
 	/**
 	 * Initializes the controller class. This method is automatically called
 	 * after the fxml file has been loaded.
@@ -85,42 +105,51 @@ public class EmployeeController {
 	 */
 	@FXML
 	private void initialize() throws SQLException {
+		
+		filterCriteria = new ArrayList<>(4);
+		filterCriteria.add(0, 0);
+		filterCriteria.add(1, 0);
+		filterCriteria.add(2, 0);
+		filterCriteria.add(3, 0);
 
+		getComboBoxFilterData();
+		setIndustryFilterComboBox();
+		setCategoryFilterComboBox();
+		setSystemStatusFilterComboBox();
+		setWorkStatusFilterComboBox();
 		getAllEmployeeData();
 		setColumnNames();
-		// Initialize the person table with the two columns.
-		firstNameColumn.setCellValueFactory(cellData -> cellData.getValue().firstNameProperty());
-		lastNameColumn.setCellValueFactory(cellData -> cellData.getValue().lastNameProperty());
-		industryColumn.setCellValueFactory(cellData -> cellData.getValue().industryProperty());
-		workTypeColumn.setCellValueFactory(cellData -> cellData.getValue().workTypeProperty());
-		addressColumn.setCellValueFactory(cellData -> cellData.getValue().addressProperty());
-		cityColumn.setCellValueFactory(cellData -> cellData.getValue().cityProperty());
-		provinceColumn.setCellValueFactory(cellData -> cellData.getValue().provinceProperty());
-		postalCodeColumn.setCellValueFactory(cellData -> cellData.getValue().postalCodeProperty());
-		phoneColumn.setCellValueFactory(cellData -> cellData.getValue().phoneProperty());
-		emailColumn.setCellValueFactory(cellData -> cellData.getValue().emailProperty());
-		startDateColumn.setCellValueFactory(cellData -> cellData.getValue().startDateProperty());
-		enddateColumn.setCellValueFactory(cellData -> cellData.getValue().endDateProperty());
-		workStatusColumn.setCellValueFactory(cellData -> cellData.getValue().workStatusProperty());
-		systemStatusColumn.setCellValueFactory(cellData -> cellData.getValue().systemStatusProperty());
-		resumeColumn.setCellValueFactory(cellData -> cellData.getValue().resumeProperty());
-		notesColumn.setCellValueFactory(cellData -> cellData.getValue().notesProperty());
 		
+		// Initialize the person table with the two columns.
+		this.firstNameColumn.setCellValueFactory(cellData -> cellData.getValue().firstNameProperty());
+		this.lastNameColumn.setCellValueFactory(cellData -> cellData.getValue().lastNameProperty());
+		this.industryColumn.setCellValueFactory(cellData -> cellData.getValue().industryProperty());
+		this.workTypeColumn.setCellValueFactory(cellData -> cellData.getValue().workTypeProperty());
+		this.addressColumn.setCellValueFactory(cellData -> cellData.getValue().addressProperty());
+		this.cityColumn.setCellValueFactory(cellData -> cellData.getValue().cityProperty());
+		this.provinceColumn.setCellValueFactory(cellData -> cellData.getValue().provinceProperty());
+		this.postalCodeColumn.setCellValueFactory(cellData -> cellData.getValue().postalCodeProperty());
+		this.phoneColumn.setCellValueFactory(cellData -> cellData.getValue().phoneProperty());
+		this.emailColumn.setCellValueFactory(cellData -> cellData.getValue().emailProperty());
+		this.startDateColumn.setCellValueFactory(cellData -> cellData.getValue().startDateProperty());
+		this.enddateColumn.setCellValueFactory(cellData -> cellData.getValue().endDateProperty());
+		this.workStatusColumn.setCellValueFactory(cellData -> cellData.getValue().workStatusProperty());
+		this.systemStatusColumn.setCellValueFactory(cellData -> cellData.getValue().systemStatusProperty());
+		this.resumeColumn.setCellValueFactory(cellData -> cellData.getValue().resumeProperty());
+		this.notesColumn.setCellValueFactory(cellData -> cellData.getValue().notesProperty());		
 
-
-		/*
-		 * // Add some sample data employeeData.add(new Employee(1, "Jeffrey",
-		 * "Nadeau")); employeeData.add(new Employee(2, "Travis", "Dreher"));
-		 * employeeData.add(new Employee(3, "Wilson", "Chau"));
-		 * employeeData.add(new Employee(4, "Shane", "Kelly"));
-		 * employeeTable.setItems(getAllEmployeeData()); // Clear person
-		 * details. showEmployeeDetails(employeeData.get(0));
-		 */
-		employeeTable.setItems(employeeData);
-		// Listen for selection changes and show the person details when
-		// changed.
-		//employeeTable.getSelectionModel().selectedItemProperty()
-		//		.addListener((observable, oldValue, newValue) -> showEmployeeDetails(newValue));
+		/*Alert alert = new Alert(AlertType.WARNING);
+		
+		alert.setContentText(Integer.toString(this.industryFilterData.size()));
+		alert.showAndWait();*/
+		
+		this.industryFilterComboBox.setItems(this.industryFilterData);
+		this.categoryFilterComboBox.setItems(this.categoryFilterData);
+		this.systemStatusFilterComboBox.setItems(this.systemStatusFilterData);
+		this.workStatusFilterComboBox.setItems(this.workStatusFilterData);
+		
+		this.employeeTable.setItems(this.employeeData);
+		
 	}
 
 	
@@ -187,9 +216,9 @@ public class EmployeeController {
 
 	@FXML
 	private void handleDeleteEmployee() {
-		int selectedIndex = employeeTable.getSelectionModel().getSelectedIndex();
+		int selectedIndex = this.employeeTable.getSelectionModel().getSelectedIndex();
 		if (selectedIndex >= 0) {
-			employeeTable.getItems().remove(selectedIndex);
+			this.employeeTable.getItems().remove(selectedIndex);
 		} else {
 			// Nothing selected.
 			Alert alert = new Alert(AlertType.WARNING);
@@ -212,7 +241,7 @@ public class EmployeeController {
 		Employee tempPerson = new Employee();
 		boolean okClicked = showEmployeeEditDialog(tempPerson);
 		if (okClicked) {
-			employeeData.add(tempPerson);
+			this.employeeData.add(tempPerson);
 		}
 	}
 
@@ -222,7 +251,7 @@ public class EmployeeController {
 	 */
 	@FXML
 	private void handleEditEmployee() {
-		Employee selectedPerson = employeeTable.getSelectionModel().getSelectedItem();
+		Employee selectedPerson = this.employeeTable.getSelectionModel().getSelectedItem();
 		if (selectedPerson != null) {
 			boolean okClicked = showEmployeeEditDialog(selectedPerson);
 			if (okClicked) {
@@ -242,9 +271,139 @@ public class EmployeeController {
 	
 
 	private void setColumnNames() {				
-		for (int i = 1; i < columnNames.size(); i++) {
-			employeeTable.getColumns().get(i - 1).setText(columnNames.get(i));			
+		for (int i = 1; i < this.columnNames.size(); i++) {
+			this.employeeTable.getColumns().get(i - 1).setText(this.columnNames.get(i));			
 		}
 	}
 
+	@FXML
+	private void handleIndustryFilterComboBox() {
+		this.industryFilterComboBox.setOnAction((event) -> {
+		    Integer selectedIndustry = this.industryFilterComboBox.getSelectionModel().getSelectedIndex();
+		    this.filterCriteria.set(0, selectedIndustry);		    
+	    	getFilteredEmployeeData();	   
+		    
+		});
+		
+	}
+	
+	@FXML
+	private void handleCategoryFilterComboBox() {
+		this.categoryFilterComboBox.setOnAction((event) -> {
+		    Integer selectedCategory = this.categoryFilterComboBox.getSelectionModel().getSelectedIndex();
+		    this.filterCriteria.set(1, selectedCategory);		    
+		    getFilteredEmployeeData();
+		    
+		});
+	}
+	
+	@FXML
+	private void handleSystemStatusFilterComboBox() {
+		this.systemStatusFilterComboBox.setOnAction((event) -> {
+		    Integer selectedSystemStatus = this.systemStatusFilterComboBox.getSelectionModel().getSelectedIndex();
+		    this.filterCriteria.set(2, selectedSystemStatus);		    
+		    getFilteredEmployeeData();
+		});
+	}
+	
+	@FXML
+	private void handleWorkStatusFilterComboBox() {
+		this.workStatusFilterComboBox.setOnAction((event) -> {
+		    Integer selectedWorkStatus = this.workStatusFilterComboBox.getSelectionModel().getSelectedIndex();
+		    this.filterCriteria.set(3, selectedWorkStatus);		    
+		    getFilteredEmployeeData();
+		});
+	}
+	
+	
+	private void getFilteredEmployeeData() {
+
+		EmployeeDataConnector employeeConnector = new EmployeeDataConnector();
+		
+		this.columnNames = employeeConnector.getEmployeeColumnNames();		
+
+		//this.employeeData = employeeConnector.getFilteredEmployeeData(1,1,1,1);
+		this.employeeData = employeeConnector.getFilteredEmployeeData(this.filterCriteria.get(0), this.filterCriteria.get(1), this.filterCriteria.get(2), this.filterCriteria.get(3));
+		this.employeeTable.setItems(this.employeeData);
+	}
+	
+	private void getComboBoxFilterData() {
+		
+		EmployeeDataConnector employeeConnector = new EmployeeDataConnector();
+		
+		this.industryFilterData = employeeConnector.getIndustries();
+		this.categoryFilterData = employeeConnector.getCategories();
+		this.systemStatusFilterData = employeeConnector.getSystemStatuses();
+		this.workStatusFilterData = employeeConnector.getWorkStatuses();
+		
+	}
+	private void setIndustryFilterComboBox() {
+		industryFilterComboBox.setCellFactory((comboBox) -> {
+		    return new ListCell<String>() {
+		        @Override
+		        protected void updateItem(String item, boolean empty) {
+		            super.updateItem(item, empty);
+
+		            if (item == null || empty) {
+		                setText(null);
+		            } else {
+		                setText(item);
+		            }
+		        }
+		    };
+		});
+		
+	}
+	
+	private void setCategoryFilterComboBox() {
+		categoryFilterComboBox.setCellFactory((comboBox) -> {
+		    return new ListCell<String>() {
+		        @Override
+		        protected void updateItem(String item, boolean empty) {
+		            super.updateItem(item, empty);
+
+		            if (item == null || empty) {
+		                setText(null);
+		            } else {
+		                setText(item);
+		            }
+		        }
+		    };
+		});
+		
+	}
+	
+	private void setSystemStatusFilterComboBox() {
+		systemStatusFilterComboBox.setCellFactory((comboBox) -> {
+		    return new ListCell<String>() {
+		        @Override
+		        protected void updateItem(String item, boolean empty) {
+		            super.updateItem(item, empty);
+
+		            if (item == null || empty) {
+		                setText(null);
+		            } else {
+		                setText(item);
+		            }
+		        }
+		    };
+		});
+	}
+	
+	private void setWorkStatusFilterComboBox() {
+		workStatusFilterComboBox.setCellFactory((comboBox) -> {
+		    return new ListCell<String>() {
+		        @Override
+		        protected void updateItem(String item, boolean empty) {
+		            super.updateItem(item, empty);
+
+		            if (item == null || empty) {
+		                setText(null);
+		            } else {
+		                setText(item);
+		            }
+		        }
+		    };
+		});
+	}
 }
