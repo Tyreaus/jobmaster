@@ -1,44 +1,54 @@
-package application;
+package jm.local.model;
 
-public class Job {
+public class Client {
 	private int id;
-	private int clientId;
-	private String description;
+	private String company;
+	private String contact;
 	private String address;
 	private String city;
 	private String province;
 	private String postalCode;
+	private String phone;
+	private String email;
 	private String startDate;
 	private String endDate;
-	private String markup;
+	private String industry;
+	private String systemStatus;
 	private String notes;
 
-	public Job () {
+	public Client () {
 		setId(0);
-		setClientId(0);
-		setDescription("");
+		setCompany("");
+		setContact("");
 		setAddress("");
 		setCity("");
 		setProvince("");
 		setPostalCode("");
+		setPhone("");
+		setEmail("");
 		setStartDate("");
 		setEndDate("");
-		setMarkup("");
+		setIndustry("");
+		setSystemStatus("");
 		setNotes("");
 	}
 	
-	public Job (int id, int clientId, String description, String address, String city, String province,
-			String postalCode, String startDate, String endDate, String markup, String notes) {
+	public Client (int id, String company, String contact, String workType, String address, 
+			String city, String province, String postalCode, String phone, String email, String startDate, 
+			String endDate, String industry, String systemStatus, String notes) {
 		setId(id);
-		setClientId(clientId);
-		setDescription(description);
+		setCompany(company);
+		setContact(contact);
 		setAddress(address);
 		setCity(city);
 		setProvince(province);
 		setPostalCode(postalCode);
+		setPhone(phone);
+		setEmail(email);
 		setStartDate(startDate);
 		setEndDate(endDate);
-		setMarkup(markup);
+		setIndustry(industry);
+		setSystemStatus(systemStatus);
 		setNotes(notes);
 	}
 
@@ -50,20 +60,20 @@ public class Job {
 		this.id = id;
 	}
 
-	public int getClientId() {
-		return clientId;
+	public String getCompany() {
+		return company;
 	}
 
-	public void setClientId(int clientId) {
-		this.clientId = clientId;
+	public void setCompany(String company) {
+		this.company = company;
 	}
 
-	public String getDescription() {
-		return description;
+	public String getContact() {
+		return contact;
 	}
 
-	public void setDescription(String description) {
-		this.description = description;
+	public void setContact(String contact) {
+		this.contact = contact;
 	}
 
 	public String getAddress() {
@@ -98,6 +108,22 @@ public class Job {
 		this.postalCode = postalCode;
 	}
 
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
 	public String getStartDate() {
 		return startDate;
 	}
@@ -113,13 +139,21 @@ public class Job {
 	public void setEndDate(String endDate) {
 		this.endDate = endDate;
 	}
-
-	public String getMarkup() {
-		return markup;
+	
+	public String getIndustry() {
+		return industry;
 	}
 
-	public void setMarkup(String markup) {
-		this.markup = markup;
+	public void setIndustry(String industry) {
+		this.industry = industry;
+	}
+
+	public String getSystemStatus() {
+		return systemStatus;
+	}
+
+	public void setSystemStatus(String systemStatus) {
+		this.systemStatus = systemStatus;
 	}
 
 	public String getNotes() {
