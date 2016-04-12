@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<ScrollPane prefHeight="476.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jm.local.view.DashboardController">
+	<content>
+		<AnchorPane prefHeight="618.0" prefWidth="947.0">
+			<children>
+				<TableView id="dashboardTable" fx:id="dashboardTable" layoutX="-56.0" layoutY="334.0" prefHeight="375.0" prefWidth="920.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="225.0">
+					<columns>
+						<TableColumn prefWidth="75.0" text="C1" />
+						<TableColumn prefWidth="75.0" text="C2" />
+					</columns>
+				</TableView>
+				<BarChart id="top10Chart" fx:id="top10Chart" animated="false" maxWidth="300.0" prefHeight="200.0" prefWidth="300.0" title="Top Ten" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="10.0">
+					<xAxis>
+						<CategoryAxis side="BOTTOM" />
+					</xAxis>
+					<yAxis>
+						<NumberAxis side="LEFT" />
+					</yAxis>
+				</BarChart>
+				<PieChart id="byIndChart" fx:id="byIndChart" animated="false" prefHeight="200.0" prefWidth="300.0" title="By Industry" AnchorPane.leftAnchor="300.0" AnchorPane.topAnchor="10.0" />
+				<VBox prefHeight="200.0" prefWidth="200.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
+					<padding>
+						<Insets left="10.0" top="10.0" />
+					</padding>
+					<children>
+						<Label id="viewCBLabel" fx:id="viewCBLabel" text="Choose View" />
+						<ComboBox id="viewComboBox" fx:id="viewComboBox" prefWidth="150.0" promptText="Select a view...">
+							<items>
+								<FXCollections fx:factory="observableArrayList">
+									<String fx:value="Employees" />
+									<String fx:value="Clients" />
+									<String fx:value="Jobs" />
+								</FXCollections>
+							</items>
+						</ComboBox>
+					</children>
+				</VBox>
+			</children>
+		</AnchorPane>
+	</content>
+</ScrollPane>

@@ -238,6 +238,7 @@ public class EmployeeDataConnector {
 		/********************************
 		 * Data added to ObservableList *
 		 ********************************/
+		rs.beforeFirst();
 		while (rs.next()) {
 			// Iterate Row
 			Employee employee = new Employee();
@@ -295,8 +296,9 @@ public class EmployeeDataConnector {
 			cs.setInt(4, workStatusFilter);
 			ResultSet rs = cs.executeQuery();
 
+			
 			setColumnNames(rs.getMetaData());
-
+			//showAllRecords(rs);
 			employeeData = fillEmployeeRecords(rs);
 
 			rs.close();
@@ -318,6 +320,28 @@ public class EmployeeDataConnector {
 
 		} // end try
 		return employeeData;
+	}
+	
+	private void showAllRecords(ResultSet rs) throws SQLException {
+		while (rs.next()) {
+		System.out.println(rs.getInt("id") 
+				+ ", " + rs.getString("Last_Name") 
+				+ ", " + rs.getString("Industry") 
+				+ ", " + rs.getString("Work_Type")
+				 + ", " + rs.getString("Address")
+				 + ", " + rs.getString("City")
+				 + ", " + rs.getString("Province")
+				 + ", " + rs.getString("Postal_Code")
+				 + ", " + rs.getString("Phone")
+				 + ", " + rs.getString("Email")
+				 + ", " + rs.getString("Start_Date")
+				 + ", " + rs.getString("End_Date")
+				 + ", " + rs.getString("Work_Status")
+				 + ", " + rs.getString("System_Status")
+				 + ", " + rs.getString("Resume")
+				 + ", " + rs.getString("Notes"));
+		}
+
 	}
 
 }

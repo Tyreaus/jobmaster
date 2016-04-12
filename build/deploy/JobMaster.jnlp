@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="JobMaster.jnlp">
+  <information>
+    <title>JobMaster</title>
+    <vendor>DataMaster Inc</vendor>
+    <description>JobMaster</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="JobMaster.jar" size="39194" download="eager" />
+    <jar href="libs\mysql-connector-java-5.1.38-bin.jar" size="983914" download="eager" />
+  </resources>
+  <jfx:javafx-desc  width="0" height="0" main-class="jm.local.Main"  name="JobMaster" />
+  <update check="background"/>
+</jnlp>

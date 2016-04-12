@@ -280,11 +280,6 @@ public class EmployeeController {
 	private void handleIndustryFilterComboBox() {
 		this.industryFilterComboBox.setOnAction((event) -> {
 		    Integer selectedIndustry = this.industryFilterComboBox.getSelectionModel().getSelectedIndex() + 1;
-		    Alert alert = new Alert(AlertType.WARNING);
-			
-			alert.setContentText("Selected Index: " + Integer.toString(selectedIndustry));
-			alert.showAndWait();
-			
 		    this.filterCriteria.set(0, selectedIndustry);		    
 	    	getFilteredEmployeeData();	   
 		    
