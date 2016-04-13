@@ -10,6 +10,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -20,6 +22,7 @@ import javafx.scene.control.ListCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -68,6 +71,7 @@ public class EmployeeController {
 	private ComboBox<String> systemStatusFilterComboBox;
 	@FXML
 	private ComboBox<String> workStatusFilterComboBox;
+	
 	
 
 	private ObservableList<Employee> employeeData;
@@ -139,21 +143,13 @@ public class EmployeeController {
 		this.resumeColumn.setCellValueFactory(cellData -> cellData.getValue().resumeProperty());
 		this.notesColumn.setCellValueFactory(cellData -> cellData.getValue().notesProperty());		
 
-		/*Alert alert = new Alert(AlertType.WARNING);
+				
 		
-		alert.setContentText(Integer.toString(this.industryFilterData.size()));
-		alert.showAndWait();*/
-		
-		this.industryFilterComboBox.getItems().clear();
 		this.industryFilterComboBox.setItems(this.industryFilterData);
-		this.categoryFilterComboBox.getItems().clear();
 		this.categoryFilterComboBox.setItems(this.categoryFilterData);
-		this.systemStatusFilterComboBox.getItems().clear();
 		this.systemStatusFilterComboBox.setItems(this.systemStatusFilterData);
-		this.workStatusFilterComboBox.getItems().clear();
 		this.workStatusFilterComboBox.setItems(this.workStatusFilterData);
 		
-		this.employeeTable.getItems().clear();
 		this.employeeTable.setItems(this.employeeData);
 		
 	}
@@ -359,6 +355,12 @@ public class EmployeeController {
 		    };
 		});
 		
+		this.industryFilterComboBox.valueProperty().addListener(new ChangeListener<String>() {
+            @Override public void changed(ObservableValue ov, String t, String t1) {                
+            	handleIndustryFilterComboBox();                
+            }    
+        });
+		
 	}
 	
 	private void setCategoryFilterComboBox() {
@@ -377,6 +379,12 @@ public class EmployeeController {
 		    };
 		});
 		
+		this.categoryFilterComboBox.valueProperty().addListener(new ChangeListener<String>() {
+            @Override public void changed(ObservableValue ov, String t, String t1) {                
+            	handleCategoryFilterComboBox();                
+            }    
+        });
+		
 	}
 	
 	private void setSystemStatusFilterComboBox() {
@@ -394,6 +402,12 @@ public class EmployeeController {
 		        }
 		    };
 		});
+		
+		this.systemStatusFilterComboBox.valueProperty().addListener(new ChangeListener<String>() {
+            @Override public void changed(ObservableValue ov, String t, String t1) {                
+            	handleSystemStatusFilterComboBox();                
+            }    
+        });
 	}
 	
 	private void setWorkStatusFilterComboBox() {
@@ -411,5 +425,26 @@ public class EmployeeController {
 		        }
 		    };
 		});
+		
+		this.workStatusFilterComboBox.valueProperty().addListener(new ChangeListener<String>() {
+            @Override public void changed(ObservableValue ov, String t, String t1) {                
+            	handleWorkStatusFilterComboBox();                
+            }    
+        });
+	}
+	
+	
+	@FXML
+	private void handleClearFiltersButton(){
+		this.filterCriteria.set(0, 0);
+		this.filterCriteria.set(1, 0);	
+		this.filterCriteria.set(2, 0);
+		this.filterCriteria.set(3, 0);
+		this.industryFilterComboBox.getSelectionModel().select(-1);
+		this.categoryFilterComboBox.getSelectionModel().select(-1);
+		this.systemStatusFilterComboBox.getSelectionModel().select(-1);
+		this.workStatusFilterComboBox.getSelectionModel().select(-1);
+		
+	    getFilteredEmployeeData();
 	}
 }
