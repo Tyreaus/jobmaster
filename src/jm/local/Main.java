@@ -1,5 +1,6 @@
 package jm.local;
 	
+
 import java.io.IOException;
 
 import jm.local.view.JobMasterGUIController;
@@ -16,9 +17,7 @@ import javafx.stage.Stage;
  */
 public class Main extends Application {
 	
-    private Stage primaryStage;
-   
-   
+    private Stage primaryStage;   
     
     @Override
     public void start(Stage primaryStage) {

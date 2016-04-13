@@ -144,11 +144,16 @@ public class EmployeeController {
 		alert.setContentText(Integer.toString(this.industryFilterData.size()));
 		alert.showAndWait();*/
 		
+		this.industryFilterComboBox.getItems().clear();
 		this.industryFilterComboBox.setItems(this.industryFilterData);
+		this.categoryFilterComboBox.getItems().clear();
 		this.categoryFilterComboBox.setItems(this.categoryFilterData);
+		this.systemStatusFilterComboBox.getItems().clear();
 		this.systemStatusFilterComboBox.setItems(this.systemStatusFilterData);
+		this.workStatusFilterComboBox.getItems().clear();
 		this.workStatusFilterComboBox.setItems(this.workStatusFilterData);
 		
+		this.employeeTable.getItems().clear();
 		this.employeeTable.setItems(this.employeeData);
 		
 	}
