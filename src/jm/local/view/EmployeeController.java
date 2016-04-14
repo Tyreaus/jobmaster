@@ -20,6 +20,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
@@ -151,6 +152,19 @@ public class EmployeeController {
 		this.workStatusFilterComboBox.setItems(this.workStatusFilterData);
 		
 		this.employeeTable.setItems(this.employeeData);
+		
+		
+		employeeTable.setRowFactory( tv -> {
+		    TableRow<Employee> row = new TableRow<>();
+		    row.setOnMouseClicked(event -> {
+		        if (event.getClickCount() == 2 && (! row.isEmpty()) ) {
+		        	handleEditEmployee();
+		        }
+		    });
+		    return row ;
+		});
+
+
 		
 	}
 
