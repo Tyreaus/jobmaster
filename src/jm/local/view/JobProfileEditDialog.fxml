@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<AnchorPane prefHeight="453.0" prefWidth="799.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Pane prefHeight="650.0" prefWidth="956.0">
+         <children>
+            <GridPane layoutX="17.0" layoutY="21.0" prefHeight="243.0" prefWidth="401.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="202.0" minWidth="10.0" prefWidth="141.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="309.0" minWidth="10.0" prefWidth="273.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label text="Job ID" />
+                  <Label text="Client ID" GridPane.rowIndex="1" />
+                  <Label text="Company" GridPane.rowIndex="2" />
+                  <Label text="Contact" GridPane.rowIndex="3" />
+                  <Label text="Phone" GridPane.rowIndex="4" />
+                  <Label text="Email" GridPane.rowIndex="5" />
+                  <TextField editable="false" GridPane.columnIndex="1">
+                     <effect>
+                        <Lighting diffuseConstant="1.42" light="$null" specularConstant="0.0">
+                           <bumpInput>
+                              <Shadow />
+                           </bumpInput>
+                        </Lighting>
+                     </effect></TextField>
+                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="4" />
+               </children>
+            </GridPane>
+            <ButtonBar layoutX="-12.0" layoutY="609.0" prefHeight="40.0" prefWidth="165.0">
+              <buttons>
+                <Button mnemonicParsing="false" onAction="#handleOk" text="Save" />
+                  <Button layoutX="135.0" layoutY="18.0" mnemonicParsing="false" onAction="#handleCancel" text="Cancel" />
+              </buttons>
+            </ButtonBar>
+            <Separator layoutX="117.0" layoutY="24.0" orientation="VERTICAL" prefHeight="243.0" prefWidth="6.0" />
+            <GridPane layoutX="453.0" layoutY="24.0" prefHeight="83.0" prefWidth="331.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label text="Start Date:" />
+                  <Label text="End Date:" GridPane.rowIndex="1" />
+                  <DatePicker GridPane.columnIndex="1" />
+                  <DatePicker GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Label text="Percent Mark Up" GridPane.rowIndex="2" />
+                  <TextField maxWidth="75.0" prefWidth="75.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+               </children>
+            </GridPane>
+            <Separator layoutX="565.0" layoutY="24.0" orientation="VERTICAL" prefHeight="83.0" prefWidth="6.0" />
+            <Label layoutX="456.0" layoutY="117.0" text="Job Description:" />
+            <GridPane layoutX="17.0" layoutY="284.0" prefHeight="122.0" prefWidth="401.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="196.0" minWidth="10.0" prefWidth="133.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="268.0" minWidth="10.0" prefWidth="268.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label text="Address" />
+                  <Label text="City" GridPane.rowIndex="1" />
+                  <Label text="Province" GridPane.rowIndex="2" />
+                  <Label text="Postal Code" GridPane.rowIndex="3" />
+                  <TextField GridPane.columnIndex="1" />
+                  <TextField maxWidth="180.0" prefHeight="25.0" prefWidth="180.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <ChoiceBox minWidth="180.0" prefWidth="180.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <TextField maxWidth="180.0" prefHeight="25.0" prefWidth="180.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+               </children>
+            </GridPane>
+            <Separator layoutX="117.0" layoutY="283.0" orientation="VERTICAL" prefHeight="122.0" prefWidth="6.0" />
+            <Label layoutX="453.0" layoutY="273.0" text="Notes:" />
+            <TextField layoutX="456.0" layoutY="134.0" prefHeight="122.0" prefWidth="481.0" />
+            <TextField layoutX="456.0" layoutY="290.0" prefHeight="122.0" prefWidth="481.0" />
+            <TextField layoutX="14.0" layoutY="456.0" prefHeight="152.0" prefWidth="923.0" />
+            <ButtonBar layoutX="-6.0" layoutY="426.0" prefHeight="25.0" prefWidth="267.0">
+              <buttons>
+                <Button mnemonicParsing="false" text="Add Job Employee" />
+                  <Button layoutX="135.0" layoutY="10.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="135.0" text="Delete Selected" />
+              </buttons>
+            </ButtonBar>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
