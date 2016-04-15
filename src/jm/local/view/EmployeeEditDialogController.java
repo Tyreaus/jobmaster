@@ -4,6 +4,8 @@ package jm.local.view;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import jm.local.model.Employee;
@@ -17,7 +19,7 @@ import ch.makery.address.util.DateUtil;
 public class EmployeeEditDialogController {
 
     @FXML
-    private TextField idField;
+    private Label idLabel;
     @FXML
     private TextField firstNameField;
     @FXML
@@ -28,6 +30,8 @@ public class EmployeeEditDialogController {
     private TextField workTypeField;
     @FXML
     private TextField addressField;
+    @FXML
+    private TextArea resumeArea;
 
 
 
@@ -41,6 +45,11 @@ public class EmployeeEditDialogController {
      */
     @FXML
     private void initialize() {
+    	
+    	
+    	
+    	
+    	
     }
 
     /**
@@ -60,7 +69,7 @@ public class EmployeeEditDialogController {
     public void setEmployee(Employee employee) {
         this.employee = employee;
 
-        idField.setText(Integer.toString(employee.getId()));
+        idLabel.setText(Integer.toString(employee.getId()));
         firstNameField.setText(employee.getFirstName());
         lastNameField.setText(employee.getLastName());
         industryField.setText(employee.getIndustry());
@@ -83,7 +92,7 @@ public class EmployeeEditDialogController {
     @FXML
     private void handleOk() {
         if (isInputValid()) {
-        	employee.setId(Integer.parseInt(idField.getText()));
+        	employee.setId(Integer.parseInt(idLabel.getText()));
         	employee.setFirstName(firstNameField.getText());
         	employee.setLastName(lastNameField.getText());
         	employee.setIndustry(industryField.getText());
@@ -112,12 +121,12 @@ public class EmployeeEditDialogController {
     private boolean isInputValid() {
         String errorMessage = "";
 
-        if (idField.getText() == null || idField.getText().length() == 0) {
+        if (idLabel.getText() == null || idLabel.getText().length() == 0) {
             errorMessage += "No valid ID number!\n"; 
         } else {
             // try to parse the postal code into an int.
             try {
-                Integer.parseInt(idField.getText());
+                Integer.parseInt(idLabel.getText());
             } catch (NumberFormatException e) {
                 errorMessage += "No valid ID number (must be an integer)!\n"; 
             }
