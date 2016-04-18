@@ -8,7 +8,7 @@ import javafx.beans.property.StringProperty;
 
 public class Job {
 	private final IntegerProperty id;
-	private final IntegerProperty clientId;
+	private final StringProperty company;
 	private final StringProperty description;
 	private final StringProperty address;
 	private final StringProperty city;
@@ -16,26 +16,28 @@ public class Job {
 	private final StringProperty postalCode;
 	private final StringProperty startDate;
 	private final StringProperty endDate;
+	private final StringProperty industry;
+	private final StringProperty systemStatus;
 	private final StringProperty markup;
 	private final StringProperty notes;
 	
 	
 
 	public Job () {
-		this(0, 0, null, null, null, null, null, null, null, null, null);		
+		this(0, null, null, null, null, null, null, null, null, null, null, null, null);		
 	}
 	
 	public Job(int id, int clientId) {
-		this(id, clientId, null, null, null, null, null, null, null, null, null);
+		this(id, null, null, null, null, null, null, null, null, null, null, null, null);
 		
 	}
 	
-	public Job (int id, int clientId, String description, String address, 
+	public Job (int id, String company, String description, String address, 
 			String city, String province, String postalCode, String startDate, 
-			String endDate, String markup, String notes) {
+			String endDate, String industry, String systemStatus, String markup, String notes) {
 		
 		this.id = new SimpleIntegerProperty(id);
-		this.clientId = new SimpleIntegerProperty(clientId);
+		this.company = new SimpleStringProperty(company);
 		this.description = new SimpleStringProperty(description);
 		this.address = new SimpleStringProperty(address);
 		this.city = new SimpleStringProperty(city);
@@ -43,6 +45,8 @@ public class Job {
 		this.postalCode = new SimpleStringProperty(postalCode);
 		this.startDate = new SimpleStringProperty(startDate);
 		this.endDate = new SimpleStringProperty(endDate);
+		this.industry = new SimpleStringProperty(industry);
+		this.systemStatus = new SimpleStringProperty(systemStatus);
 		this.markup = new SimpleStringProperty(markup);
 		this.notes = new SimpleStringProperty(notes);
 		
@@ -55,8 +59,8 @@ public class Job {
 		return id.get();
 	}
 
-	public int getClientId() {
-		return clientId.get();
+	public String getCompany() {
+		return company.get();
 	}
 
 	public String getDescription() {
@@ -86,6 +90,14 @@ public class Job {
 	public String getEndDate() {
 		return endDate.get();
 	}
+	
+	public String getIndustry() {
+		return industry.get();
+	}
+	
+	public String getSystemStatus() {
+		return systemStatus.get();
+	}
 
 	public String getMarkup() {
 		return markup.get();
@@ -102,8 +114,8 @@ public class Job {
 		this.id.set(id);
 	}
 
-	public void setClientId(int clientId) {
-		this.clientId.set(clientId);
+	public void setCompany(String company) {
+		this.company.set(company);
 	}
 
 	public void setDescription(String description) {
@@ -133,6 +145,14 @@ public class Job {
 	public void setEndDate(String endDate) {
 		this.endDate.set(endDate);
 	}
+	
+	public void setIndustry(String industry) {
+		this.industry.set(industry);
+	}
+	
+	public void setSystemStatus(String systemStatus) {
+		this.systemStatus.set(systemStatus);
+	}
 
 	public void setMarkup(String markup) {
 		this.markup.set(markup);
@@ -147,8 +167,8 @@ public class Job {
 		return id;
 	}
 	
-	public IntegerProperty clientIdProperty() {
-		return clientId;
+	public StringProperty companyProperty() {
+		return company;
 	}
 	
 	public StringProperty descriptionProperty() {
@@ -177,6 +197,14 @@ public class Job {
 
 	public StringProperty endDateProperty() {
 		return endDate;
+	}
+	
+	public StringProperty industryProperty() {
+		return industry;
+	}
+	
+	public StringProperty systemStatusProperty() {
+		return systemStatus;
 	}
 
 	public StringProperty markupProperty() {

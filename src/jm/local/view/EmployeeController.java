@@ -23,7 +23,6 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -119,10 +118,7 @@ public class EmployeeController {
 		filterCriteria.add(3, 0);
 
 		getComboBoxFilterData();
-		setIndustryFilterComboBox();
-		setCategoryFilterComboBox();
-		setSystemStatusFilterComboBox();
-		setWorkStatusFilterComboBox();
+		
 		getAllEmployeeData();
 		setColumnNames();
 		
@@ -351,6 +347,10 @@ public class EmployeeController {
 		this.categoryFilterData = employeeConnector.getCategories();
 		this.systemStatusFilterData = employeeConnector.getSystemStatuses();
 		this.workStatusFilterData = employeeConnector.getWorkStatuses();
+		setIndustryFilterComboBox();
+		setCategoryFilterComboBox();
+		setSystemStatusFilterComboBox();
+		setWorkStatusFilterComboBox();
 		
 	}
 	private void setIndustryFilterComboBox() {
